@@ -1,8 +1,31 @@
-#include "node.c"
-#include "binarytree.c"
+#include "node.h"
+#include "binarytree.h"
+#include <stdbool.h>
+#include <stdio.h>
+#include <stdlib.h>
 
 int main(void) {
+	int value = 0;
+	_Bool found;
 
+	binary_tree bt;
+	initialize(&bt);
+	
+	FILE* inFile = NULL; // File pointer
+
+    	inFile = fopen("file.txt", "r");
+
+    	if (inFile == NULL) {
+       		printf("Could not open file myfile.txt.\n");
+       		return -1; // -1 indicates error
+    	}
+	
+	fscanf(inFile,"%d",&value);
+    	while (!feof(inFile)) { 
+		insert(&bt, value);
+		fscanf(inFile,"%d",&value);
+	}
+		 
 	printf("Print in order\n");
 	printinorder(&bt);
 	printf("\nPrint pre order\n");

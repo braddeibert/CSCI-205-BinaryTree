@@ -1,15 +1,15 @@
 #ifndef BINARYTREE_H
 #define BINARYTREE_H
-#include "Contact.h"
+#include "node.h"
 
 typedef struct binary_tree_struct
 {
-    Node* root;
+    node* root;
     int size;
 } binary_tree;
 
 void initialize(binary_tree* bt);
-bool search(binary_tree* bt, int key);
+_Bool search(binary_tree* bt, int key);
 void insert(binary_tree* bt, int item);
 void printinorder(binary_tree* bt);
 void printpreorder(binary_tree* bt);
