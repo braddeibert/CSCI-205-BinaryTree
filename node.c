@@ -2,30 +2,30 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void printNodeIn(node* n) {
+void InOrder(node* n) {
 	if (n == NULL) {
 		return;
 	}
-	printNodeIn(n->left);
+	InOrder(n->left);
 	printf("%d ", n->value);
-	printNodeIn(n->right);
+	InOrder(n->right);
 }
 
-void printNodePre(node* n) {
+void PreOrder(node* n) {
 	if (n == NULL) {
 		return;
 	}
 	printf("%d ", n->value);
-	printNodePre(n->left);
-	printNodePre(n->right);
+	PreOrder(n->left);
+	PreOrder(n->right);
 }
 
-void printNodePost(node* n) {
+void PostOrder(node* n) {
 	if (n == NULL) {
 		return;
 	}
-	printNodePost(n->left);
-	printNodePost(n->right);
+	PostOrder(n->left);
+	PostOrder(n->right);
 	printf("%d ", n->value);
 }
 

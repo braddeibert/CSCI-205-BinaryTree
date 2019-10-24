@@ -13,7 +13,7 @@ void initialize(binary_tree* bt) {
 
 _Bool search(binary_tree* bt, int key) {
 	node* currentNode = bt->root;
-	while (currentNode != NULL) {
+	while (currentNode != NULL) {                           //Will continue through tree looking for key until hits a pointer to NULL 
 		if (currentNode->value == key) { 
 			return true;
 		}
@@ -35,11 +35,11 @@ void insert(binary_tree* bt, int item) {
 		bt->size += 1;
 	}
 	else {	
-		node* newNode = NULL;
-		newNode = (node*)malloc(sizeof(node));
-		newNode->value = item;
-		newNode->left = NULL;
-		newNode->right = NULL;
+		node* newNode = NULL;                          //
+		newNode = (node*)malloc(sizeof(node));         //
+		newNode->value = item;                         // Creates and initializes the new node with proper value
+		newNode->left = NULL;                          //
+		newNode->right = NULL;                         //
 		node* currentNode = bt->root;
 		int found = 0;                  //Used to stay in loop until a Null placeholder is found where we will insert the node
 		while (found == 0) {
@@ -63,15 +63,15 @@ void insert(binary_tree* bt, int item) {
 }
 
 void printinorder(binary_tree* bt) {
-	printNodeIn(bt->root);
+	InOrder(bt->root);
 }
 
 void printpreorder(binary_tree* bt) {
-	printNodePre(bt->root);
+	PreOrder(bt->root);
 }
 
 void printpostorder(binary_tree* bt) {
-	printNodePost(bt->root);
+	PostOrder(bt->root);
 }
 
 int btsize(binary_tree* bt) {
@@ -79,5 +79,5 @@ int btsize(binary_tree* bt) {
 }
 
 int treeheight(binary_tree* bt) {
-	depth(bt->root);
+	return depth(bt->root);
 }

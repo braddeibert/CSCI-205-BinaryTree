@@ -4,7 +4,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int main(void) {
+int main(int argc, char* argv []) {
 	int value = 0;
 	_Bool found;
 
@@ -13,10 +13,15 @@ int main(void) {
 	
 	FILE* inFile = NULL; // File pointer
 
-    	inFile = fopen("file.txt", "r");
+	if (argc == 1) {
+		printf("Needs a file argument.\n");
+		return -1; // -1 indicates error
+	}
+
+    	inFile = fopen(argv[1], "r");
 
     	if (inFile == NULL) {
-       		printf("Could not open file myfile.txt.\n");
+       		printf("File does not exist.\n");
        		return -1; // -1 indicates error
     	}
 	

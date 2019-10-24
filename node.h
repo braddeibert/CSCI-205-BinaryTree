@@ -6,10 +6,14 @@ typedef struct node_struct {
    struct node_struct* left;
    struct node_struct* right;
 } node;
+                                    
+//
+// Using these functions in addition to functions in binarytree.c to solve recursively given the root node of the binary tree
+//
 
-void printNodeIn(node* n);
-void printNodePre(node* n);
-void printNodePost(node* n);
-int depth(node* n);
+void InOrder(node* n);         //Used to print binary tree in order
+void PreOrder(node* n);        //Used to print binary tree in pre-order
+void PostOrder(node* n);       //Used to print binary tree in post-order
+int depth(node* n);            //Used to recursivly find the height of the tree
 
 #endif
